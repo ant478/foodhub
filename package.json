@@ -7,7 +7,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "postinstall": ""
+    "install": "npm install -g sequelize && npm install -g sequelize-cli && npm install -g mysql",
+    "postinstall": "gulp --gulpfile frontend/gulpfile.js build && sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -16,6 +17,7 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "lodash": "^4.11.2",
+    "lodash.assign": "^4.0.8",
     "morgan": "^1.7.0",
     "mysql": "^2.10.2",
     "passport": "^0.3.2",
