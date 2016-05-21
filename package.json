@@ -6,9 +6,7 @@
   "node": "4.4.3"
   },
   "scripts": {
-    "start": "node app.js",
-    "install": "npm install -g sequelize && npm install -g sequelize-cli && npm install -g mysql",
-    "postinstall": "gulp --gulpfile frontend/gulpfile.js build && sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
