@@ -78,7 +78,17 @@ function build(name, parser) {
         return models.Food.bulkCreate(products, {
           transaction: t
         });
+      }).then(function() {
+        console.log('done');
+      }).catch(function(error) {
+        console.log(error);
       });
     });
-  });
+  })
+      .then(function() {
+        console.log('done');
+      }).catch(function(error) {
+        console.log(error);
+      });
+  ;
 }
