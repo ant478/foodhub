@@ -8,14 +8,14 @@ var config = {
   password: 'root',
   auth: {
     facebook: {
-      id: 826978404068539,
-      secret: 'e73ff5dcff143688a832b1f86f2c7c02',
-      callback: 'http://foodhub.com/api/v1/login/facebook/return'
+      id: 1117458761660283,
+      secret: '07e53b043f786817a49684046f496f63',
+      callback: 'http://81.177.175.79/api/v1/login/facebook/return'
     },
     vkontakte: {
-      id: 5474858,
-      secret: 'H6dghO8C1bxMDuiGp6dn',
-      callback: 'http://foodhub.com/api/v1/login/vkontakte/return'
+      id: 5474864,
+      secret: 'w88jCTxgnf2RZEHEAxRl',
+      callback: 'http://81.177.175.79/api/v1/login/vkontakte/return'
     }
   }
 };
