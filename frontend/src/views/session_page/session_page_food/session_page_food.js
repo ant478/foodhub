@@ -7,6 +7,7 @@ angular.module('Foodhub')
   .controller('SessionPageFoodController', ['$scope', '$rootScope', '$location', 'Shops', 'Sessions', 'Orders', '$routeParams', '$timeout',
   function($scope, $rootScope, $location, Shops, Sessions, Orders, $routeParams, $timeout) {
     $rootScope.pageTitle = $rootScope.projectConfig.nameProject + ' - Выбор товаров';
+    $scope.emptyOrderMessage = 'Список товаров пуст.';
 
     if ((!$routeParams.id || isNaN(Number($routeParams.id))) && !$routeParams.id === 'new') {
       $location.path('/');
@@ -122,8 +123,7 @@ angular.module('Foodhub')
           }
         });
       }
-    }
-    $scope.emptyOrderMessage = 'Список товаров пуст.';
+    }    
 
     $scope.saveOrder = function(order) {
       if (order.foodOrders.length === 0){
@@ -132,7 +132,6 @@ angular.module('Foodhub')
         $timeout(function() { 
           $scope.emptyOrderMessageShow = false;
         }.bind(this),1000);
-
 
         return;
       }
@@ -182,7 +181,7 @@ angular.module('Foodhub')
             return Orders.updateOrder(orderParams);
           }).then(function(order) {
             $location.path('/session/' + $scope.session.id);
-          });
+          }).catch($scope.catchError);
         } else {
           var orderParams = {
             id: $scope.order.id,
@@ -191,11 +190,8 @@ angular.module('Foodhub')
           }
           Orders.updateOrder(orderParams).then(function(order) {
             $location.path('/session/' + $scope.session.id);
-          });
+          }).catch($scope.catchError);;
         }
-        Orders.updateOrder(orderParams).then(function(order) {
-          $location.path('/session/' + $scope.session.id);
-        }).catch($scope.catchError);
       }
     }
 
